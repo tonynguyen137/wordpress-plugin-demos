@@ -23,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'TWYN_MODAL_PLUGIN_FILE', __FILE__ );
 define( 'TWYN_MODAL_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
 define( 'TWYN_MODAL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'TWYN_MODAL_BUILD_PATH', TWYN_MODAL_PLUGIN_PATH . 'build' );
+
 
 /**
  * Plugin includes.
@@ -34,6 +36,8 @@ require_once TWYN_MODAL_PLUGIN_PATH . 'includes/class-gutenberg-blocks-register.
 /**
  * Bootstrap the plugin
  */
-new Gutenberg_Blocks_Register();
+
+
+new Gutenberg_Blocks_Register(TWYN_MODAL_BUILD_PATH);
 
 

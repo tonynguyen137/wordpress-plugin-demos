@@ -8,9 +8,20 @@ namespace Twyn\Modal;
 class Gutenberg_Blocks_Register {
 
 	/**
-	 *	Hooks the block registration callback into the init action.
+	 * Absolute path to the compiled block build directory.
+	 *
+	 * @var string
+ */
+	private string $build_path;
+
+
+	/**
+	 * Sets the block build path and hooks the registration callback into the init action.
+	 *
+	 * @param string $build_path Absolute path to the compiled block build directory.
 	 */
-	public function __construct() {
+	public function __construct( string $build_path ) {
+		$this->build_path = $build_path;
 		add_action( 'init', [$this,'register_blocks'] );
 	}
 
@@ -24,7 +35,10 @@ class Gutenberg_Blocks_Register {
  	*/
 
 	public function register_blocks() {
-		wp_register_block_types_from_metadata_collection( TWYN_MODAL_PLUGIN_PATH . 'build', TWYN_MODAL_PLUGIN_PATH . 'build/blocks-manifest.php' );
+		wp_register_block_types_from_metadata_collection( 
+			$this->build_path,
+			$this->build_path . '/blocks-manifest.php'
+		);
 	}
 
 }

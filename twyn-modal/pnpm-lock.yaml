@@ -17,6 +17,9 @@ importers:
       '@wordpress/i18n':
         specifier: latest
         version: 6.29.0
+      '@wordpress/icons':
+        specifier: ^17.0.0
+        version: 17.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@wordpress/scripts':
         specifier: ^36.0.0

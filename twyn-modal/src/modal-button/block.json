@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twyn/modal-button",
+	"version": "0.1.0",
+	"title": "Twyn Modal Button",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": "Modal öffnen",
+			"source": "html",
+			"selector": "span"
+		}
+	},
+
+	"parent": ["twyn/modal-buttons"],
+	"textdomain": "twyn-modal",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js"
+}
