@@ -14,6 +14,8 @@
  */
 
 use Twyn\Modal\Gutenberg_Blocks_Register;
+use Twyn\Modal\Modal_Post_Type;
+use Twyn\Modal\Modal_Manager;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,13 +33,14 @@ define( 'TWYN_MODAL_BUILD_PATH', TWYN_MODAL_PLUGIN_PATH . 'build' );
  */
 
 require_once TWYN_MODAL_PLUGIN_PATH . 'includes/class-gutenberg-blocks-register.php';
+require_once TWYN_MODAL_PLUGIN_PATH . 'includes/class-modal-post-type.php';
+require_once TWYN_MODAL_PLUGIN_PATH . 'includes/class-modal-manager.php';
 
 
 /**
  * Bootstrap the plugin
  */
 
-
 new Gutenberg_Blocks_Register(TWYN_MODAL_BUILD_PATH);
-
-
+new Modal_Post_Type();
+new Modal_Manager();

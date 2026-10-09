@@ -1,0 +1,102 @@
+.wp-block-twyn-modal-content {
+	width: min(calc(100% - 2rem), 50rem);
+	max-width: none;
+	max-height: calc(100dvh - 2rem);
+	margin: auto;
+	padding: 0;
+	border: 0;
+	background: transparent;
+
+	&::backdrop {
+		background: rgb(0 0 0 / 60%);
+	}
+
+	.twyn-modal__inner {
+		position: relative;
+		max-height: calc(100dvh - 2rem);
+		overflow: auto;
+		padding: clamp(1.5rem, 4vw, 3rem);
+		background: #fff;
+		border-radius: 0.5rem;
+	}
+
+	.twyn-modal__close {
+		position: absolute;
+		z-index: 1;
+		top: 1rem;
+		right: 1rem;
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 2.75rem;
+		height: 2.75rem;
+		padding: 0;
+
+		border: 0;
+		border-radius: 50%;
+		background: transparent;
+		color: inherit;
+
+		font: inherit;
+		font-size: 2rem;
+		line-height: 1;
+
+		cursor: pointer;
+
+		&:focus-visible {
+			outline: 2px solid currentColor;
+			outline-offset: 2px;
+		}
+	}
+
+	.twyn-modal__content {
+		min-width: 0;
+	}
+
+	opacity: 0;
+	transform: translateY(1.5rem) scale(0.98);
+
+	transition:
+		opacity 180ms ease,
+		transform 180ms ease,
+		overlay 180ms allow-discrete,
+		display 180ms allow-discrete;
+
+	&[open] {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+
+		@starting-style {
+			opacity: 0;
+			transform: translateY(1.5rem) scale(0.98);
+		}
+	}
+
+	&::backdrop {
+		// dein bisheriges backdrop background hier ersetzen
+		background: rgb(0 0 0 / 0%);
+
+		transition:
+			background 180ms ease,
+			overlay 180ms allow-discrete,
+			display 180ms allow-discrete;
+	}
+
+	&[open]::backdrop {
+		background: rgb(0 0 0 / 60%);
+
+		@starting-style {
+			background: rgb(0 0 0 / 0%);
+		}
+	}
+}
+
+html {
+	scrollbar-gutter: stable;
+}
+
+html.twyn-modal-open {
+	overflow: hidden;
+}
