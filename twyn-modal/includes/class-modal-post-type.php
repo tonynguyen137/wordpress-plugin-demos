@@ -37,6 +37,23 @@ class Modal_Post_Type {
 			'all_items'     => __( 'Alle Modals', 'twyn-modal' ),
 		];
 
+		$modal_template = [
+			[
+				'twyn/modal-content',
+				[
+					'lock' => [
+						'move'   => true,
+						'remove' => true,
+					],
+				],
+			],
+		];
+
+		$modal_template = apply_filters(
+			'twyn_modal_post_type_template',
+			$modal_template
+		);
+
 		register_post_type(
 			'twyn_modal',
 			[
@@ -56,17 +73,7 @@ class Modal_Post_Type {
 					'editor',
 					'revisions',
 				],
-				'template'            => [
-					[ 
-						'twyn/modal-content',
-						[
-							'lock' => [
-								'move'   => true,
-								'remove' => true,
-							],
-						],
-					],
-				],
+				'template'            => $modal_template,
 				'template_lock' => 'all',
 			]
 		);
