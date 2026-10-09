@@ -1,7 +1,9 @@
 .wp-block-twyn-modal-content {
+	display: flex;
+	flex-direction: column;
 	width: min(calc(100% - 2rem), 50rem);
 	max-width: none;
-	max-height: calc(100dvh - 2rem);
+	// max-height: calc(100dvh - 2rem);
 	margin: auto;
 	padding: 0;
 	border: 0;
@@ -13,7 +15,7 @@
 
 	.twyn-modal__inner {
 		position: relative;
-		max-height: calc(100dvh - 2rem);
+		// max-height: calc(100dvh - 2rem);
 		overflow: auto;
 		padding: clamp(1.5rem, 4vw, 3rem);
 		background: #fff;
@@ -90,6 +92,12 @@
 		@starting-style {
 			background: rgb(0 0 0 / 0%);
 		}
+	}
+
+	&[open] {
+		visibility: visible;
+		opacity: 1;
+		overflow: visible;
 	}
 }
 

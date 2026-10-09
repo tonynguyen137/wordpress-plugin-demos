@@ -6,6 +6,7 @@ import {
 	MediaUpload,
 	MediaUploadCheck,
 	MediaPlaceholder,
+	BlockControls,
 } from '@wordpress/block-editor';
 import {
 	TextControl,
@@ -13,6 +14,7 @@ import {
 	SelectControl,
 	Button,
 	ComboboxControl,
+	ToolbarButton,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { store as coreStore } from '@wordpress/core-data';
@@ -145,6 +147,24 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<>
+			{triggerType === 'image' && imageId && (
+				<BlockControls>
+					<MediaUploadCheck>
+						<MediaUpload
+							allowedTypes={['image']}
+							value={imageId}
+							onSelect={onSelectImage}
+							render={({ open }) => (
+								<ToolbarButton
+									icon="edit"
+									label={__('Bild ersetzen', 'twyn-modal')}
+									onClick={open}
+								/>
+							)}
+						/>
+					</MediaUploadCheck>
+				</BlockControls>
+			)}
 			<InspectorControls>
 				<PanelBody title={__('Modal-Einstellungen', 'twyn-modal')}>
 					<SelectControl
@@ -153,6 +173,17 @@ export default function Edit({ attributes, setAttributes }) {
 						options={triggerTypeOptions}
 						onChange={onChangeTriggerType}
 					/>
+
+					{triggerType === 'image' && imageId && (
+						<>
+							<SelectControl
+								label={__('Bildgröße', 'twyn-modal')}
+								value={imageSize}
+								options={imageSizeOptions}
+								onChange={onChangeImageSize}
+							/>
+						</>
+					)}
 
 					<ComboboxControl
 						label={__('Modal auswählen', 'twyn-modal')}
@@ -166,37 +197,6 @@ export default function Edit({ attributes, setAttributes }) {
 							})
 						}
 					/>
-
-					{triggerType === 'image' && imageId && (
-						<>
-							<SelectControl
-								label={__('Bildgröße', 'twyn-modal')}
-								value={imageSize}
-								options={imageSizeOptions}
-								onChange={onChangeImageSize}
-							/>
-
-							<MediaUploadCheck>
-								<MediaUpload
-									allowedTypes={['image']}
-									value={imageId}
-									onSelect={onSelectImage}
-									render={({ open }) => (
-										<Button
-											variant="secondary"
-											onClick={open}
-										>
-											{__('Bild ersetzen', 'twyn-modal')}
-										</Button>
-									)}
-								/>
-							</MediaUploadCheck>
-
-							<Button variant="tertiary" onClick={onRemoveImage}>
-								{__('Bild entfernen', 'twyn-modal')}
-							</Button>
-						</>
-					)}
 				</PanelBody>
 			</InspectorControls>
 
@@ -231,6 +231,7 @@ export default function Edit({ attributes, setAttributes }) {
 							render={({ open }) =>
 								imageUrl ? (
 									<img
+										className={`wp-image-${imageId}`}
 										src={imageUrl}
 										alt={image?.alt_text ?? ''}
 									/>

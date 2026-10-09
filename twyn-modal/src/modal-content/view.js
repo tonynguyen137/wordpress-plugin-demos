@@ -47,5 +47,38 @@ store('twyn/modal', {
 			activeTrigger?.focus();
 			activeTrigger = null;
 		},
+
+		trapFocus(event) {
+			if (event.key !== 'Tab') {
+				return;
+			}
+
+			const dialog = event.currentTarget;
+
+			const focusableElements = [
+				...dialog.querySelectorAll(
+					'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+				),
+			];
+
+			if (focusableElements.length === 0) {
+				event.preventDefault();
+				return;
+			}
+
+			const firstElement = focusableElements[0];
+			const lastElement = focusableElements[focusableElements.length - 1];
+
+			if (event.shiftKey && document.activeElement === firstElement) {
+				event.preventDefault();
+				lastElement.focus();
+				return;
+			}
+
+			if (!event.shiftKey && document.activeElement === lastElement) {
+				event.preventDefault();
+				firstElement.focus();
+			}
+		},
 	},
 });

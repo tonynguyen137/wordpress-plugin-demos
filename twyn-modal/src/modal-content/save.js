@@ -6,6 +6,7 @@ export default function save() {
 		'data-wp-interactive': 'twyn/modal',
 		'data-wp-on--close': 'actions.restoreFocus',
 		'data-wp-on--click': 'actions.closeOnBackdrop',
+		'data-wp-on--keydown': 'actions.trapFocus',
 	});
 
 	const innerBlocksProps = useInnerBlocksProps.save({
