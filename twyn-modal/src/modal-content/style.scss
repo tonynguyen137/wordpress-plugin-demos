@@ -1,5 +1,4 @@
 .wp-block-twyn-modal-content {
-	display: flex;
 	flex-direction: column;
 	width: min(calc(100% - 2rem), 50rem);
 	max-width: none;
@@ -98,13 +97,11 @@
 		visibility: visible;
 		opacity: 1;
 		overflow: visible;
+		display: flex;
 	}
-}
-
-html {
-	scrollbar-gutter: stable;
 }
 
 html.twyn-modal-open {
 	overflow: hidden;
+	scrollbar-gutter: stable;
 }

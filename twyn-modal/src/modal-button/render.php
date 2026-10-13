@@ -43,7 +43,6 @@ use Twyn\Modal\Modal_Manager;
 			if ( 0 !== $image_id ) {
 				echo wp_get_attachment_image( $image_id, $image_size, false, array(
 					'class' => 'wp-image-' . $image_id,
-					'sizes' => '100vw'
 				) );
 			}
 			break;

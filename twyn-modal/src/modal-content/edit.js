@@ -2,7 +2,8 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import './editor.scss';
 
-export default function Edit() {
+export default function Edit({ context }) {
+	console.log('context ', context);
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(
 		{

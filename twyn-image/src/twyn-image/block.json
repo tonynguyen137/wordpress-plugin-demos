@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twyn/twyn-image",
+	"version": "0.1.0",
+	"title": "Twyn Bild",
+	"category": "widgets",
+	"icon": "format-image",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"url": {
+			"type": "string"
+		},
+		"source": {
+			"type": "object",
+			"default": {}
+		},
+		"fetchPriority": {
+			"type": "string",
+			"enum": ["auto", "high", "low"],
+			"default": "auto"
+		},
+		"loading": {
+			"type": "string",
+			"enum": ["eager", "lazy"],
+			"default": "eager"
+		},
+		"sizes": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "twyn-image",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

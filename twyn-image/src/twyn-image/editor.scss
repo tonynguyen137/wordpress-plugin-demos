@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-twyn-twyn-image {
+	&.is-loading {
+		filter: blur(4px) grayscale(1);
+		opacity: 0.6;
+		animation: twyn-image-loading 1.6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
+	}
+
+	@keyframes twyn-image-loading {
+		0%,
+		100% {
+			opacity: 0.45;
+		}
+
+		50% {
+			opacity: 0.75;
+		}
+	}
+}
