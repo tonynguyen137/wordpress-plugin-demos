@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twyn/dialog-button",
+	"version": "0.1.0",
+	"title": "Twyn Dialog Button",
+	"category": "widgets",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": "Modal öffnen"
+		},
+		"ariaLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"triggerType": {
+			"type": "string",
+			"enum": ["text", "image"],
+			"default": "text"
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "full"
+		},
+		"modalId": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"parent": ["twyn/dialog-buttons"],
+
+	"textdomain": "twyn-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js"
+}
