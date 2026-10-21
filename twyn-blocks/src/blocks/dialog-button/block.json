@@ -23,9 +23,18 @@
 		}
 	},
 	"attributes": {
-		"content": {
+		"triggerButtonContent": {
 			"type": "string",
 			"default": "Modal öffnen"
+		},
+		"closeButtonContent": {
+			"type": "string",
+			"default": "Modal schließen"
+		},
+
+		"showCloseIcon": {
+			"type": "boolean",
+			"default": true
 		},
 		"ariaLabel": {
 			"type": "string",
