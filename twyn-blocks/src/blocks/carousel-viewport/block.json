@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twyn/carousel-viewport",
+	"version": "0.1.0",
+	"title": "Twyn Viewport",
+	"category": "widgets",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"]
+		},
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"inserter": false,
+		"lock": false,
+		"allowedBlocks": true
+	},
+	"providesContext": {
+		"twyn/carouselAllowedBlocks": "allowedBlocks"
+	},
+	"parent": ["twyn/carousel"],
+	"textdomain": "twyn-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twyn/carousel-slide",
+	"version": "0.1.0",
+	"title": "Twyn Slide",
+	"category": "widgets",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"usesContext": ["twyn/carouselAllowedBlocks"],
+	"parent": ["twyn/carousel-viewport"],
+	"textdomain": "twyn-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js"
+}

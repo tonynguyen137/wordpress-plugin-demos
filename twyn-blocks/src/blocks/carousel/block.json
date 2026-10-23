@@ -1,0 +1,121 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twyn/carousel",
+	"version": "0.1.0",
+	"title": "Twyn Carousel",
+	"category": "widgets",
+	"description": "Powered by Embla-Carousel.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": ["wide", "full"],
+		"layout": {
+			"default": {
+				"type": "constrained"
+			}
+		},
+		"spacing": {
+			"blockGap": ["horizontal", "vertical"],
+			"padding": true,
+			"margin": true
+		},
+		"color": {
+			"background": true,
+			"text": false
+		},
+		"listView": true,
+		"contentRole": true
+	},
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"default": "static"
+		}
+	},
+	"providesContext": {
+		"twyn/carouselVariant": "variant"
+	},
+	"variations": [
+		{
+			"name": "images",
+			"title": "Twyn Carousel (Bilder)",
+			"scope": ["inserter"],
+			"attributes": {
+				"variant": "images"
+			},
+			"isActive": ["variant"],
+			"innerBlocks": [
+				[
+					"twyn/carousel-viewport",
+					{
+						"allowedBlocks": ["core/image"],
+						"lock": {
+							"move": true,
+							"remove": true
+						}
+					},
+					[
+						[
+							"twyn/carousel-slide",
+							{},
+							[
+								[
+									"core/image",
+									{
+										"url": "https://picsum.photos/800"
+									}
+								]
+							]
+						]
+					]
+				]
+			]
+		},
+		{
+			"name": "dynamic",
+			"title": "Twyn Carousel (dynamisch)",
+			"scope": ["inserter"],
+			"attributes": {
+				"variant": "dynamic"
+			},
+			"isActive": ["variant"],
+			"innerBlocks": [
+				[
+					"core/query",
+					{
+						"lock": {
+							"move": true,
+							"remove": true
+						},
+						"query": {
+							"postType": "post",
+							"perPage": 6,
+							"inherit": false
+						},
+						"className": "wp-block-twyn-carousel-viewport"
+					},
+					[
+						[
+							"core/post-template",
+							{
+								"lock": {
+									"move": true,
+									"remove": true
+								},
+								"className": "wp-block-twyn-carousel-viewport__container"
+							},
+							[["core/post-title"]]
+						]
+					]
+				]
+			]
+		}
+	],
+
+	"textdomain": "twyn-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

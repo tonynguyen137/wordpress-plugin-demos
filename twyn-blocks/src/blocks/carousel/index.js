@@ -1,0 +1,13 @@
+import { registerBlockType } from "@wordpress/blocks";
+import { buttons } from "@wordpress/icons";
+import Edit from "./edit.js";
+import save from "./save.js";
+import metadata from "./block.json";
+
+import "./style.scss";
+
+registerBlockType(metadata.name, {
+	edit: Edit,
+	save,
+	icon: buttons,
+});

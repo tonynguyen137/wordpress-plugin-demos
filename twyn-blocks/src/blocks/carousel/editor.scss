@@ -1,0 +1,15 @@
+.wp-block-twyn-carousel {
+	box-sizing: border-box;
+
+	.wp-block-twyn-carousel-viewport {
+		overflow-x: scroll;
+	}
+
+	.wp-block-twyn-carousel-viewport__container {
+		margin-left: 0;
+
+		& > li {
+			padding-left: 0;
+		}
+	}
+}

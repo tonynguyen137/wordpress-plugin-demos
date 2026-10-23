@@ -13,7 +13,8 @@
 		"@wordpress/block-editor": "latest",
 		"@wordpress/blocks": "latest",
 		"@wordpress/i18n": "latest",
-		"@wordpress/icons": "^19.0.0"
+		"@wordpress/icons": "^19.0.0",
+		"embla-carousel": "^8.6.0"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^37.0.0"
