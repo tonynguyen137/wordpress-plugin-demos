@@ -3,10 +3,12 @@
 
 	.wp-block-twyn-carousel-viewport {
 		overflow-x: scroll;
+		padding-block-bottom: 24px;
 	}
 
 	.wp-block-twyn-carousel-viewport__container {
 		margin-left: 0;
+		gap: 0.5rem;
 
 		& > li {
 			padding-left: 0;

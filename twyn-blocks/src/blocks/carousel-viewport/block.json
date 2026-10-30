@@ -6,6 +6,7 @@
 	"title": "Twyn Viewport",
 	"category": "widgets",
 	"description": "Example block scaffolded with Create Block tool.",
+	"icon": "slides",
 	"example": {},
 	"supports": {
 		"html": false,
@@ -17,6 +18,8 @@
 			"background": true,
 			"text": true
 		},
+		"listView": true,
+		"contentRole": true,
 		"inserter": false,
 		"lock": false,
 		"allowedBlocks": true

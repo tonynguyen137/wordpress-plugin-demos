@@ -28,9 +28,14 @@ export default function Edit({ attributes, clientId }) {
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		template: TEMPLATE,
+		templateInsertUpdatesSelection: true,
 	});
 
 	useEffect(() => {
+		if (variant === "static") {
+			return;
+		}
+
 		const editor = select(blockEditorStore);
 
 		if (

@@ -14,12 +14,31 @@
 		display: flex;
 		touch-action: pan-y pinch-zoom;
 		margin-left: calc(var(--twyn-carousel-slide-spacing) * -1);
-
 		& > li {
 			transform: translate3d(0, 0, 0);
 			flex: 0 0 var(--twyn-carousel-slide-size);
 			min-width: 0;
 			padding-left: var(--twyn-carousel-slide-spacing);
 		}
+	}
+}
+
+/* in your theme */
+
+//global
+
+* {
+	box-sizing: border-box;
+}
+
+// basic
+
+.wp-block-twyn-carousel {
+	li > .wp-block-group {
+		border: 2px solid rgb(234, 234, 234);
+		border-radius: 1.8rem;
+		display: flex;
+		justify-content: center;
+		padding-block: 16px;
 	}
 }

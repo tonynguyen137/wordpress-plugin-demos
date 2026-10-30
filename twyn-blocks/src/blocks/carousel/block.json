@@ -24,14 +24,16 @@
 		"color": {
 			"background": true,
 			"text": false
-		},
-		"listView": true,
-		"contentRole": true
+		}
 	},
 	"attributes": {
 		"variant": {
 			"type": "string",
 			"default": "static"
+		},
+		"options": {
+			"type": "object",
+			"default": {}
 		}
 	},
 	"providesContext": {
@@ -117,5 +119,6 @@
 	"textdomain": "twyn-blocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
 }
